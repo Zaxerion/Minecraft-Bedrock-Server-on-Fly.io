@@ -13,4 +13,4 @@ Where `<minecraft server>` is the name of your minecraft server
 
 ## Licence
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
