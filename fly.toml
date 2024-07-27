@@ -1,0 +1,35 @@
+# fly.toml app configuration file generated for fly-minecraft-server-spring-resonance-6159 on 2024-07-27T04:17:48Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'minecraft-server'
+primary_region = 'sin'
+
+[build]
+  image = 'itzg/minecraft-bedrock-server:latest'
+
+[[mounts]]
+  source = 'mc_server'
+  destination = '/data'
+  processes = ['app']
+
+[env]
+  EULA = 'TRUE'
+
+[[services]]
+  protocol = 'udp'
+  internal_port = 19132
+
+  [[services.ports]]
+    port = 19132
+
+  [services.concurrency]
+    type = 'connections'
+    hard_limit = 25
+    soft_limit = 20
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
